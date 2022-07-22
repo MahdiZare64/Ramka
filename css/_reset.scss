@@ -1023,3 +1023,12 @@ a {
     }
   }
 }
+
+.owl-item {
+  touch-action: auto !important;
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+  user-select: auto !important;
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+}

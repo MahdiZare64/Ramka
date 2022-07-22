@@ -54,6 +54,33 @@ Ramka.fixedHeader.init = function () {
   }
 };
 
+Ramka.sidebar = Ramka.sidebar || {};
+Ramka.sidebar.init = function () {
+  try {
+    document
+      .querySelector(".menu-button")
+      .addEventListener("click", function () {
+        const nav = document.querySelector("nav");
+
+        if (nav.classList.contains("active-nav")) {
+          nav.classList.remove("active-nav");
+        } else {
+          nav.classList.add("active-nav");
+        }
+      });
+
+    document.querySelector(".nav-icon").addEventListener("click", function () {
+      if (this.classList.contains("open")) {
+        this.classList.remove("open");
+      } else {
+        this.classList.add("open");
+      }
+    });
+  } catch (e) {
+    console.log(`Error on Ramka.sidebar.cart - ${e}`);
+  }
+};
+
 Ramka.slider = Ramka.slider || {};
 Ramka.slider.init = function () {
   try {
@@ -87,12 +114,15 @@ Ramka.slider.init = function () {
       responsiveClass: true,
       responsive: {
         0: {
-          items: 2,
-        },
-        576: {
-          items: 3,
+          items: 1,
         },
         768: {
+          items: 2,
+        },
+        992: {
+          items: 3,
+        },
+        1201: {
           items: 4,
         },
       },
@@ -145,7 +175,6 @@ Ramka.ripple.init = function () {
   }
 };
 
-
 Ramka.customInput = Ramka.customInput || {};
 Ramka.customInput.init = function () {
   try {
@@ -188,6 +217,7 @@ Ramka.customInput.init = function () {
 window.addEventListener("DOMContentLoaded", function () {
   Ramka.default.init();
   Ramka.fixedHeader.init();
+  Ramka.sidebar.init();
   Ramka.slider.init();
   Ramka.ripple.init();
   Ramka.customInput.init();

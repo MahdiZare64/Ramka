@@ -62,7 +62,7 @@ Ramka.slider.init = function () {
       // stagePadding: 70,
       smartSpeed: 700,
       autoplay: true,
-      autoplayTimeout: 3000,
+      autoplayTimeout: 4000,
       rtl: true,
       nav: true,
       autoplayHoverPause: true,
@@ -71,7 +71,57 @@ Ramka.slider.init = function () {
         "<i class='fal fa-angle-right'></i>",
         "<i class='fal fa-angle-left'></i>",
       ],
-      items: 1
+      items: 1,
+    });
+
+    $(".demo__news__carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      // stagePadding: 70,
+      smartSpeed: 800,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      rtl: true,
+      nav: true,
+      dots: true,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 2,
+        },
+        576: {
+          items: 3,
+        },
+        768: {
+          items: 4,
+        },
+      },
+    });
+
+    $(".demo__customer__carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      smartSpeed: 1000,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      rtl: true,
+      nav: false,
+      dots: false,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 2,
+        },
+        575: {
+          items: 4,
+        },
+        991: {
+          items: 5,
+        },
+        1200: {
+          items: 6,
+        },
+      },
     });
   } catch (e) {
     console.log(`Error on Ramka.slider.init - ${e}`);
@@ -95,9 +145,50 @@ Ramka.ripple.init = function () {
   }
 };
 
+
+Ramka.customInput = Ramka.customInput || {};
+Ramka.customInput.init = function () {
+  try {
+    function setFocus(on) {
+      var element = document.activeElement;
+      if (on) {
+        setTimeout(function () {
+          element.parentNode.classList.add("focus");
+        });
+      } else {
+        let box = document.querySelector(".input-box");
+        box.classList.remove("focus");
+        $("input").each(function () {
+          var $input = $(this);
+          var $parent = $input.closest(".input-box");
+          if ($input.val()) $parent.addClass("focus");
+          else $parent.removeClass("focus");
+        });
+      }
+    }
+
+    const inputs = document.querySelectorAll(".input-box .custom-input");
+
+    if (inputs.length) {
+      inputs.forEach(function (item) {
+        item.addEventListener("focus", function () {
+          setFocus(true);
+        });
+
+        item.addEventListener("blur", function () {
+          setFocus(false);
+        });
+      });
+    }
+  } catch (e) {
+    console.log(`Error on Ramka.customInput.init - ${e}`);
+  }
+};
+
 window.addEventListener("DOMContentLoaded", function () {
   Ramka.default.init();
   Ramka.fixedHeader.init();
   Ramka.slider.init();
   Ramka.ripple.init();
+  Ramka.customInput.init();
 });

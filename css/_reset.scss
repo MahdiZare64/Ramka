@@ -224,7 +224,7 @@ input,
 select,
 textarea,
 button {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "sans", Arial, Helvetica, sans-serif;
   outline: 0;
   resize: none;
 }
@@ -269,7 +269,7 @@ a:hover {
 
 .wrapper {
   position: relative;
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 section {
@@ -540,6 +540,10 @@ a {
   color: $secondary_color !important;
 }
 
+.third-color {
+  color: $third_color !important;
+}
+
 .black-color {
   color: $black_color !important;
 }
@@ -554,10 +558,6 @@ a {
 
 .blue-color {
   color: $blue_color !important;
-}
-
-.primary-color {
-  color: $primary_color !important;
 }
 
 .black-bg-color {
@@ -660,7 +660,7 @@ a {
 
     &:focus {
       outline: none;
-      border: 2px solid $primary_color;
+      border: 2px solid $secondary_color;
       @include transition($duration: 0.25s);
     }
   }
@@ -735,7 +735,7 @@ a {
   }
 
   .wrapper {
-    padding: 4.5rem 0;
+    padding: 3.5rem 0;
   }
 }
 
@@ -757,7 +757,7 @@ a {
   }
 
   .wrapper {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 
   .row.reverse-responsive {
@@ -818,7 +818,7 @@ a {
   }
 
   .wrapper {
-    padding: 2.5rem 0;
+    padding: 1.5rem 0;
   }
 }
 

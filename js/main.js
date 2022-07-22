@@ -158,23 +158,6 @@ Ramka.slider.init = function () {
   }
 };
 
-Ramka.ripple = Ramka.ripple || {};
-Ramka.ripple.init = function () {
-  try {
-    window.rippler = $.ripple("[data-ripple], .area", {
-      debug: true,
-      multi: true,
-    });
-
-    window.rippler = $.ripple(".owl-carousel-button .owl-nav button, .area", {
-      debug: true,
-      multi: true,
-    });
-  } catch (e) {
-    console.log(`Error on Ramka.ripple.init - ${e}`);
-  }
-};
-
 Ramka.customInput = Ramka.customInput || {};
 Ramka.customInput.init = function () {
   try {
@@ -219,6 +202,5 @@ window.addEventListener("DOMContentLoaded", function () {
   Ramka.fixedHeader.init();
   Ramka.sidebar.init();
   Ramka.slider.init();
-  Ramka.ripple.init();
   Ramka.customInput.init();
 });
